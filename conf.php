@@ -21,3 +21,8 @@ $services_list = [
 // If you use shared hosting, ping may be disabled by your host
 
 $servers_list = array();
+
+
+// Disk details
+$disk_details = shell_exec("df -k | grep 'sd\|mmc\|root'");
+$count = preg_match_all("#^[^\s]*[\s]*([0-9]*)[\s]*([0-9]*)[\s]*([0-9]*)[\s]*([0-9]*\%)[\s]*([^\s]*)#m",$disk_details,$mount_data);

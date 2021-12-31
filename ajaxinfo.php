@@ -72,26 +72,28 @@ $mem = array(
 );
 
 // disk usage
-$disk_details = shell_exec("df -h | grep sd");
-$count = preg_match_all("#\%\s([a-zA-Z0-9\/\-\_]*)#si",$disk_details,$mount_names);
+// Disk details and count data loaded from conf.php file
 
-foreach($mount_names[1] as $disk_path){
-    $disk_space_total = disk_total_space($disk_path);
-    $disk_space_free = disk_free_space($disk_path);
-    $disk_space_usage = ($disk_space_total - $disk_space_free);
+//print_r($mount_data);
 
-    if ($disk_space_total > 10737418240) {
-        $disk_total = round(($disk_space_total / 1073741824), 2);
-        $disk_usage = round(($disk_space_usage / 1073741824), 2);
-        $disk_multiple = 'GB';
-    } else {
+for($i=0; $i<$count; $i++){
+    $disk_space_total = $mount_data[1][$i];
+	$disk_space_usage = $mount_data[2][$i];
+    $disk_space_free = $mount_data[3][$i];
+    $disk_space_path = $mount_data[5][$i];
+
+    if ($disk_space_total > 1024*1024) {
         $disk_total = round(($disk_space_total / 1048576), 2);
         $disk_usage = round(($disk_space_usage / 1048576), 2);
+        $disk_multiple = 'GB';
+    } else {
+        $disk_total = round(($disk_space_total / 1024), 2);
+        $disk_usage = round(($disk_space_usage / 1024), 2);
         $disk_multiple = 'MB';
     }
     
     $disk[] = array(
-		'name' => $disk_path,
+        'name' => $disk_space_path,
         'total' => $disk_total,
         'usage' => $disk_usage,
         'tag' => $disk_multiple

@@ -146,8 +146,8 @@ $cpu_model = trim($matches[1]);
 
 
 <?php
-$disk_details = shell_exec("df -h | grep sd");
-$count = preg_match_all("#\%\s([a-zA-Z0-9\/\-\_]*)#si",$disk_details,$mount_names);
+// Disk count details loaded from conf.php
+
 for($i=0;$i<$count;$i++){
 ?>
 		<div class="title">Disk space  <span id="disk_total_<?=$i?>"" style="font-weight: bolder;"></span></div>
