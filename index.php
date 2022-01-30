@@ -68,7 +68,7 @@ if ($servers_list){
 	}
 ?>
         </ul>
-<?
+<?php
 }
 
 // uptime
@@ -150,12 +150,12 @@ $cpu_model = trim($matches[1]);
 
 for($i=0;$i<$count;$i++){
 ?>
-		<div class="title">Disk space  <span id="disk_total_<?=$i?>"" style="font-weight: bolder;"></span></div>
-		<div id="diskinfo_<?=$i?>" class="box">
+		<div class="title">Disk space  <span id="disk_total_<?php echo $i; ?>"" style="font-weight: bolder;"></span></div>
+		<div id="diskinfo_<?php echo $i; ?>" class="box">
 			<div>
                 <div class="progress_bar">
-                    <div class="bar1_box" id="disk_used_box_<?=$i?>"></div>
-                    <div class="bar2_box" id="disk_cached_box_<?=$i?>"></div>
+                    <div class="bar1_box" id="disk_used_box_<?php echo $i; ?>"></div>
+                    <div class="bar2_box" id="disk_cached_box_<?php echo $i; ?>"></div>
                 </div>
 			</div>
 		</div>
