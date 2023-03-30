@@ -3,14 +3,15 @@
 $start = microtime(true);
 
 require('conf.php');
-//require('info.php');
+
+$vtag = "?v=".rand(1111,9999);
 
 ?>
 
 <html>
 <head>
 	<title>status</title>
-	<link href="css/status.css" rel="stylesheet" type="text/css" />
+	<link href="css/status.css<?=$vtag?>" rel="stylesheet" type="text/css" />
     
     <style type="text/css">
         .progress_bar {
@@ -180,7 +181,7 @@ for($i=0;$i<$count;$i++){
 	</div>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-	<script src="js/status.js" type="text/javascript"></script>
+	<script src="js/status.js<?=$vtag?>" type="text/javascript"></script>
 
 </body>
 </html>
