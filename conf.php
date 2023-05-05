@@ -24,5 +24,5 @@ $servers_list = array();
 
 
 // Disk details
-$disk_details = shell_exec("df -k | grep 'sd\|mmc\|root'");
+$disk_details = shell_exec("df -k | grep 'sd\|mmc\|root\|vda'");
 $count = preg_match_all("#^[^\s]*[\s]*([0-9]*)[\s]*([0-9]*)[\s]*([0-9]*)[\s]*([0-9]*\%)[\s]*([^\s]*)#m",$disk_details,$mount_data);
