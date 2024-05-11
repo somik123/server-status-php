@@ -1,7 +1,7 @@
 # server-status
 Just add it to your prefered folder and open it in browser. 
 
-<img src="https://raw.githubusercontent.com/somik123/server-status/main/screenshot.png" />
+<img src="https://raw.githubusercontent.com/somik123/server-status-php/main/screenshot.png" />
 
 
 Requrires PHP to be configured as per this setup: https://somik.org/ubuntu-22-04-nginxphp/
